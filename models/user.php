@@ -13,7 +13,7 @@ class UserModel extends Model{
 			}
 
 			// Insert into MySQL
-			$this->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
+			$this->query('INSERT INTO usuario (username, email, password) VALUES(:name, :email, :password)');
 			$this->bind(':name', $post['name']);
 			$this->bind(':email', $post['email']);
 			$this->bind(':password', $password);
@@ -35,7 +35,7 @@ class UserModel extends Model{
 
 		if($post['submit']){
 			// Compare Login
-			$this->query('SELECT * FROM users WHERE email = :email AND password = :password');
+			$this->query('SELECT * FROM usuario WHERE email = :email AND password = :password');
 			$this->bind(':email', $post['email']);
 			$this->bind(':password', $password);
 			
@@ -44,11 +44,11 @@ class UserModel extends Model{
 			if($row){
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data'] = array(
-					"id"	=> $row['id'],
-					"name"	=> $row['name'],
+					"idUsuario"	=> $row['idUsuario'],
+					"UserName"	=> $row['UserName'],
 					"email"	=> $row['email']
 				);
-				header('Location: '.ROOT_URL.'shares');
+				header('Location: '.ROOT_URL);
 			} else {
 				Messages::setMsg('Incorrect Login', 'error');
 			}
