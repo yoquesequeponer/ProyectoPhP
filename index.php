@@ -11,11 +11,11 @@ require('classes/Controller.php');
 require('classes/Model.php');
 
 require('controllers/home.php');
-require('controllers/shares.php');
+require('controllers/animals.php');
 require('controllers/users.php');
 
 require('models/home.php');
-require('models/share.php');
+require('models/animal.php');
 require('models/user.php');
 
 $bootstrap = new Bootstrap($_GET);

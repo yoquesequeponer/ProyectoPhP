@@ -13,7 +13,7 @@
     		<textarea name="body" class="form-control"></textarea>
     	</div>
     	<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
-        <a class="btn btn-danger" href="<?php echo ROOT_PATH; ?>shares">Cancel</a>
+        <a class="btn btn-danger" href="<?php echo ROOT_PATH; ?>animal">Cancel</a>
     </form>
   </div>
 </div>
