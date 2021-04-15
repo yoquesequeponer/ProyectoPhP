@@ -1,12 +1,18 @@
 <?php
 class animalModel extends Model{
+
 	public function Index(){
-		$this->query('SELECT * FROM comentario ORDER BY fechaComentario DESC');
-		$rows = $this->resultSet();
+		//$this->query('SELECT * FROM animal join comentario on animal.idAnimal=comentario.idComentario ORDER BY fechaComentario DESC');
+		$this->query('SELECT * FROM animal');
+		$rows[0] = $this->resultSet();
+		$this->query('SELECT * FROM comentario');
+		$rows[1] = $this->resultSet();
 		return $rows;
 	}
 
+
 	public function add(){
+		$id = $_GET['id'];
 		// Sanitize POST
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -20,7 +26,7 @@ class animalModel extends Model{
 			$this->bind(':title', $post['title']);
 			$this->bind(':body', $post['body']);
 			$this->bind(':user_id', $_SESSION['user_data']['idUsuario']);
-			$this->bind(':idAnimal', 1);
+			$this->bind(':idAnimal', $id);
 			$this->execute();
 			// Verify
 			if($this->lastInsertId()){

@@ -14,7 +14,7 @@ class animals extends Controller{
 	}
 
 	protected function delete(){
-		if(!isset($_SESSION['is_logged_in']) /*&& $_SESSION['user_data']['idUsuario'] == $idUsuario*/){
+		if(!isset($_SESSION['is_logged_in']) ){
 			header('Location: '.ROOT_URL.'animal');
 		}
 		$viewmodel = new animalModel();
