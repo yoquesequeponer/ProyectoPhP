@@ -47,7 +47,8 @@ class UserModel extends Model{
 				$_SESSION['user_data'] = array(
 					"idUsuario"	=> $row['idUsuario'],
 					"UserName"	=> $row['UserName'],
-					"email"	=> $row['email']
+					"email"	=> $row['email'],
+					"rol" => $row['rol']
 				);
 				header('Location: '.ROOT_URL);
 			} else {
