@@ -36,4 +36,12 @@ class animals extends Controller{
 		$viewmodel = new animalModel();
 		$this->returnView($viewmodel->deleteAnimal(), true);
 	}
+
+	protected function adoptar(){
+		if(!isset($_SESSION['is_logged_in']) ){
+			header('Location: '.ROOT_URL.'animal');
+		}
+		$viewmodel = new animalModel();
+		$this->returnView($viewmodel->adoptar(), true);
+	}
 }

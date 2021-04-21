@@ -4,14 +4,17 @@
 <?php endif; ?>
 
 <?php foreach ($viewmodel[0] as $item0) :?><!-- Bucle para recorer los animales y dentro de el los comentarios -->
+	<?php if(empty($item0['fechaAdopcion'])) : ?>
 	<div class="well">
+	
+	
 			<h3><?php echo $item0['nombreAnimal']; ?></h3>
 
 			<?php if(isset($_SESSION['is_logged_in'])) : ?>
 			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/add/<?php echo $item0['idAnimal']?>">Comment</a>
 			
 			
-			<!-- <a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/acoger/<?php echo $item0['idAnimal']?>">Acoger</a> -->
+			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/acoger/<?php echo $item0['idAnimal']?>">Acoger</a> 
 			
 			
 			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/adoptar/<?php echo $item0['idAnimal']?>">Adoptar</a>
@@ -39,6 +42,7 @@
 		<a class="btn btn-danger"href="animals/deleteAnimal/<?php echo $item0['idAnimal']?>">Delete Animal</a>
 		<?php endif; ?>
 	</div>
+	<?php endif; ?>
 <?php endforeach; ?><!-- Fin del bucle de los animales -->
 
 </div>

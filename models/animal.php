@@ -2,7 +2,6 @@
 class animalModel extends Model{
 
 	public function Index(){
-		//$this->query('SELECT * FROM animal join comentario on animal.idAnimal=comentario.idComentario ORDER BY fechaComentario DESC');
 		$this->query('SELECT * FROM animal');
 		$rows[0] = $this->resultSet();
 		$this->query('SELECT * FROM comentario');
@@ -84,4 +83,25 @@ class animalModel extends Model{
 			header('Location: '.ROOT_URL.'animals');
 		}
 	}
+
+	public function adoptar(){
+        $id = $_GET['id'];
+        $today = date('Y-m-d');
+		$idUser=$_SESSION['user_data']['idUsuario'];
+		
+			// Insert into MySQL
+			$this->query('UPDATE animal set fechaAdopcion=:fechaAdopcion, idUsuarioAdop=:idUsuarioAdop where idAnimal=:id');
+			$this->bind(':fechaAdopcion', $today);
+			$this->bind(':id',$id);
+			$this->bind(':idUsuarioAdop', $idUser);
+			$this->execute();
+			//echo $today;
+			//die;
+			// Verify
+			if($this->lastInsertId()){
+				// Redirect
+				header('Location: '.ROOT_URL.'animals');
+			}
+		
+    }
 }
