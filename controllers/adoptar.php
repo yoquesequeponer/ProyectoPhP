@@ -7,4 +7,5 @@ class adoptar extends Controller{
 		$viewmodel = new adoptarModel();
 		$this->returnView($viewmodel->adoptar(), true);
 	}
+	
 }

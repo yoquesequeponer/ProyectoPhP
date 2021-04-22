@@ -12,10 +12,16 @@ require('classes/Model.php');
 
 require('controllers/home.php');
 require('controllers/animals.php');
+require('controllers/comentarios.php');
+require('controllers/adoptar.php');
+require('controllers/acoger.php');
 require('controllers/users.php');
 
 require('models/home.php');
 require('models/animal.php');
+require('models/comentarios.php');
+require('models/adoptar.php');
+require('models/acoger.php');
 require('models/user.php');
 
 $bootstrap = new Bootstrap($_GET);

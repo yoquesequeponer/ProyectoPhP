@@ -7,30 +7,29 @@
 	<?php if(empty($item0['fechaAdopcion'])) : ?>
 	<div class="well">
 	
-	
 			<h3><?php echo $item0['nombreAnimal']; ?></h3>
 
 			<?php if(isset($_SESSION['is_logged_in'])) : ?>
-			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/add/<?php echo $item0['idAnimal']?>">Comment</a>
+			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>comentarios/add/<?php echo $item0['idAnimal']?>">Comment</a>
 			
 			
-			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/acoger/<?php echo $item0['idAnimal']?>">Acoger</a> 
+			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>acoger/acoger/<?php echo $item0['idAnimal']?>">Acoger</a> 
 			
 			
-			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>animals/adoptar/<?php echo $item0['idAnimal']?>">Adoptar</a>
+			<a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>adoptar/adoptar/<?php echo $item0['idAnimal']?>">Adoptar</a>
 			<?php endif; ?>
 
 		<?php foreach($viewmodel[1] as $item1) : ?><!-- Bucle de los comentarios -->
 			<?php if($item0['idAnimal'] == $item1['idAnimal']) : ?>
 			<div class="well">
 				<h3><?php echo $item1['titulo']; ?></h3>
-				<small><?php echo $item1['fechaComentario']; ?></small>
-				<hr />
+				<small><?php echo $item1['fechaComentario'];?></small>
+				<hr/>
 				<p><?php echo $item1['texto']; ?></p>
 				<br>
 				<?php if(isset($_SESSION['is_logged_in'] ) ) : ?>
 					<?php if($item1['idUsuario'] == $_SESSION['user_data']['idUsuario'] || $_SESSION['user_data']['rol']==1) : ?>
-						<a class="btn btn-danger"href="animals/delete/<?php echo $item1['idComentario']?>">Delete Comment</a>
+						<a class="btn btn-danger"href="comentarios/delete/<?php echo $item1['idComentario']?>">Delete Comment</a>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>

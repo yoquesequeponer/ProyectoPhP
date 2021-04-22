@@ -1,20 +1,23 @@
 <?php
-class adoptarModel extends Model{
+class acogerModel extends Model{
 
 	public function acoger(){
-        $id = $_GET['id'];//idAnimal
+		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+		$id = $_GET['id'];//idAnimal
         $idUser=$_SESSION['user_data']['idUsuario'];
+		//print_r($post['diaFin']); die;
         if(isset($post['submit'])){
 			if($post['diaInicio'] == ''||$post['diaFin']=''){
 				Messages::setMsg('Please Fill In All Fields', 'error');
 				return;
 			}
 		// Insert into MySQL
-        $this->query('UPDATE acoge set idUsuario=:idUser, idAnimal=:id, fechaAcogida=:fechaInicio, fechaFin=:fechaFin where idAnimal=:id');
+		
+        $this->query('INSERT INTO acoge (idUsuario, idAnimal, fechaAcogida, fechaFin) VALUES(:idUsuarioAdop, :id, :diaInicio, :diaFin)');
         $this->bind(':idUsuarioAdop', $idUser);
         $this->bind(':id',$id);
-        $this->bind(':fechaInicio', $post['diaInicio]');
-        $this->bind(':fechaFin', $post['diaFin]');
+        $this->bind(':diaInicio', $post['diaInicio']);
+        $this->bind(':diaFin', $post['diaFin']);
         $this->execute();
 
         // Verify
