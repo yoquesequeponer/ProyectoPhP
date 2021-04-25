@@ -1,5 +1,6 @@
 <?php
-
+define("ITEMSPAG", 2);
+define("pag",0);
 // Define DB Params
 define("DB_HOST", "localhost");
 define("DB_USER", "root");

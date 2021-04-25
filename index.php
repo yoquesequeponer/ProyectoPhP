@@ -25,6 +25,13 @@ require('models/acoger.php');
 require('models/user.php');
 
 $bootstrap = new Bootstrap($_GET);
+
+$pag=$_GET['id'];
+if(!$pag){
+	$pag=1;
+}
+$_SESSION['pag'] = $pag;
+
 $controller = $bootstrap->createController();
 if($controller){
 	$controller->executeAction();

@@ -1,5 +1,11 @@
-<div class="text-center">
-	<h1>Welcome To ShareBoard</h1>
-	<p class="lead">Find something cool? Share it with our community. Look at other shares as well</p>
-	<a class="btn btn-primary text-center" href="<?php echo ROOT_PATH;?>animals">Share Now</a>
+<section id="intro">
+
+<div class="intro-content">
+  <h2>Making <span>your ideas</span><br>happen!</h2>
+  <div>
+	<a href="#about" class="btn-get-started scrollto">Get Started</a>
+	<a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
+  </div>
 </div>
+
+</section><!-- #intro -->

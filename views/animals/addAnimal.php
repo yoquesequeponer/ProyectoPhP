@@ -8,6 +8,10 @@
     		<label>Nombre</label>
     		<input type="text" name="nombreAnimal" class="form-control" />
     	</div>
+      <div class="form-group">
+    		<label>Imagen</label>
+    		<input type="file" name="imagenAnimal" class="form-control" />
+    	</div>
     	<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
         <a class="btn btn-danger" href="<?php echo ROOT_PATH; ?>animal">Cancel</a>
     </form>
